@@ -42,3 +42,5 @@ docker run
 
 
 # Access published artifact# qr-code-buzzvel
+
+https://qr-code-buzzvel.vercel.app/
