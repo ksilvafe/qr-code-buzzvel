@@ -17,7 +17,7 @@ const ResultQRCode = () => {
     githubURL: string
   }
 
-  window.location = '/';
+  (window as Window).location = 'abc'
 
   useEffect(() => {
     const fetchUser = async () => {
