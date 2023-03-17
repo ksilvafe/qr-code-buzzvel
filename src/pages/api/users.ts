@@ -37,6 +37,7 @@ const routes: any = {
     // res.status(404).json({message: 'preencha o id'})
   },
   'POST': async(req:NextApiRequest, res: NextApiResponse) => {
+    try {
     const {name, githubURL, linkedinURL } = JSON.parse(req.body);
     const { databaseFile, users } = await getUsers();
     
@@ -52,6 +53,10 @@ const routes: any = {
     
     await writeFile(databaseFile, JSON.stringify(users))
     return res.status(201).setHeader('id', id).json({ok: 'ok'});
+    } catch (error) {
+      console.log(error);
+    }
+    
   }
 }
 
