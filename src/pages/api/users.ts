@@ -3,12 +3,12 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import path from 'path';
 import fs, { writeFile } from 'fs/promises'
 import { randomUUID } from 'crypto'
+import { readFile } from 'fs/promises'
+import getConfig from 'next/config';
 type Data = {
   name?: string
   message?: string
 }
-import db from '../../database/db.json'
-import { readFile } from 'fs/promises'
 
 type User = {
   id: string
@@ -17,8 +17,11 @@ type User = {
   linkedinURL: string
 }
 const getUsers = async() => {
-  const databaseFile = path.join(path.resolve(), '/src/database/db.json');
-  const users: User[] = JSON.parse(await fs.readFile(databaseFile, 'utf8'));
+  const { serverRuntimeConfig } = getConfig()
+  console.log(serverRuntimeConfig.PROJECT_ROOT);
+  const databaseFile = path.join(serverRuntimeConfig.PROJECT_ROOT, './public/db.json');
+
+  const users: User[] = JSON.parse(await readFile(databaseFile, 'utf8'));
 
   return {
     databaseFile,
