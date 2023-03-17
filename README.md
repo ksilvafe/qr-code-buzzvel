@@ -44,3 +44,15 @@ docker run
 # Access published artifact# qr-code-buzzvel
 
 https://qr-code-buzzvel.vercel.app/
+
+## Testes Locais
+ parte 1
+![image](https://user-images.githubusercontent.com/42346207/225956677-93e09aa8-193f-4b24-bf7a-13442ac66434.png)
+
+parte 2
+![image](https://user-images.githubusercontent.com/42346207/225956914-a85038d8-a670-4c80-a885-520d7851f113.png)
+
+parte 3
+![image](https://user-images.githubusercontent.com/42346207/225957047-8fc60b64-d60e-4ad8-b812-2e76465e616e.png)
+
+
