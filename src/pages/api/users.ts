@@ -17,7 +17,7 @@ type User = {
   linkedinURL: string
 }
 const getUsers = async() => {
-  const databaseFile = path.join(process.cwd(), '/src/database/db.json');
+  const databaseFile = path.join(path.resolve(), '/src/database/db.json');
   const users: User[] = JSON.parse(await fs.readFile(databaseFile, 'utf8'));
 
   return {
