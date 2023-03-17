@@ -8,7 +8,7 @@ export const baseUrl = typeof window !== 'undefined' && window.location.origin
     : '';
     
 export default function Home() {
-  const [userId, setUserId] = useState("")
+  const [userId, setUserId] = useState<string | null >("")
   const [getcontent, setGetContent] = useState({ 
     name: '',
     linkedinURL: '',

@@ -8,9 +8,14 @@ import styles from '@/styles/Home.module.css'
 
 const ResultQRCode = () => {
   const router = useRouter();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<userData>();
   const {id} = router?.query;
-  console.log(router)
+
+  interface userData {
+    name: string | null
+    linkedinURL: string | null
+    githubURL: string | null
+  }
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -27,8 +32,8 @@ const ResultQRCode = () => {
         <p>Hello, my name is {user?.name}</p>
         <h1>My History</h1>
         <p>Lorem Ipsum is simply dummy text versions of Lorem Ipsum.</p>
-        <Button variant="outlined"><a href={user?.linkedinURL || ""}>Linkedin</a></Button>
-        <Button variant="outlined"><a href={user?.githubURL || ""}>Github</a></Button>
+        <Button variant="outlined"><a href={user?.linkedinURL || ""} target="_blank">Linkedin</a></Button>
+        <Button variant="outlined"><a href={user?.githubURL || ""} target="_blank">Github</a></Button>
     </div>
   )
 
