@@ -38,25 +38,24 @@ const routes: any = {
   },
   'POST': async(req:NextApiRequest, res: NextApiResponse) => {
     try {
-    const {name, githubURL, linkedinURL } = JSON.parse(req.body);
-    const { databaseFile, users } = await getUsers();
-    
-    var id = randomUUID()
-
-    const user: User = {
-      id,
-      name,
-      githubURL,
-      linkedinURL
-    }
-    users.push(user)  
-    
-    await writeFile(databaseFile, JSON.stringify(users))
-    return res.status(201).setHeader('id', id).json({ok: 'ok'});
+      const {name, githubURL, linkedinURL } = JSON.parse(req.body);
+      const { databaseFile, users } = await getUsers();
+      
+      var id = randomUUID()
+  
+      const user: User = {
+        id,
+        name,
+        githubURL,
+        linkedinURL
+      }
+      users.push(user)  
+      
+      await writeFile(databaseFile, JSON.stringify(users))
+      return res.status(201).setHeader('id', id).json({ok: 'ok'}); 
     } catch (error) {
-      console.log(error);
+      return res.status(500).json({message: error})
     }
-    
   }
 }
 
