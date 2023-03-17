@@ -12,9 +12,9 @@ const ResultQRCode = () => {
   const { id } = router?.query;
 
   interface userData {
-    name: string
-    linkedinURL: string
-    githubURL: string
+    name: string | null
+    linkedinURL: string | null
+    githubURL: string | null
   }
 
   useEffect(() => {
