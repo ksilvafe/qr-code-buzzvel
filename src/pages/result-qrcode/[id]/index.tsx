@@ -17,7 +17,7 @@ const ResultQRCode = () => {
     githubURL: string
   }
 
-  window.location = 'strign';
+  window.location = '/';
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -37,8 +37,8 @@ const ResultQRCode = () => {
         <p>Lorem Ipsum is simply dummy text versions of Lorem Ipsum.</p>
         {/* <Button variant="outlined"><a href={user?.linkedinURL || ""} target="_blank">Linkedin</a></Button>
         <Button variant="outlined"><a href={user?.githubURL || ""} target="_blank">Github</a></Button> */}
-        <div className={styles.linkedin} onClick={() => window?.location?.href = user?.linkedinURL}>Linkedin</div>
-        <div className={styles.github} onClick={() => window?.location?.href = user?.githubURL}>Github</div>
+        <div className={styles.linkedin} onClick={() => window.location.href = user?.linkedinURL}>Linkedin</div>
+        <div className={styles.github} onClick={() => window.location.href = user?.githubURL}>Github</div>
       </div>
 
     </>
