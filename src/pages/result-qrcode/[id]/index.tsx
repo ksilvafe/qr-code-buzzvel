@@ -33,8 +33,8 @@ const ResultQRCode = () => {
       <p>Hello, my name is {user?.name}</p>
       <h1>My History</h1>
       <p>Lorem Ipsum is simply dummy text versions of Lorem Ipsum.</p>
-      <div className={styles.linkedin} onClick={()=> window.location.href = user?.linkedinURL}>Linkedin</div>
-      <div className={styles.github} onClick={()=> window.location.href = user?.githubURL}>Github</div>
+      <Button variant="outlined"><a href={user?.linkedinURL || ""}>Linkedin</a></Button>
+      <Button variant="outlined"><a href={user?.githubURL || ""}>Github</a></Button>
     </div>
      
     </>
