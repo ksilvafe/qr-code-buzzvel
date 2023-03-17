@@ -32,14 +32,15 @@ export default function Home() {
    const handleSubmit = async (event: any) => {
     event.preventDefault();
     const response = await fetch(`${baseUrl}/api/users`, {method: 'POST', body: JSON.stringify(getcontent)});
-    const idFromResponse = response?.headers?.get('id')
+    const idFromResponse = response.headers.get('id')
 
-    const path = `${baseUrl}/result-qrcode/${idFromResponse}`;
-    setUserId(idFromResponse)
+    if(idFromResponse) {
+      const path = `${baseUrl}/result-qrcode/${idFromResponse}`;
+      setUserId(idFromResponse)
+      setQrCodePath(path);
+    }
     //ex: app-vercel.app/result-qrcode
     // const path = `${baseUrl}/result-qrcode/${getcontent.name}?githubUrl=${getcontent.githubURL}&linkedinUrl=${getcontent.linkedinURL}`;
-    setQrCodePath(path);
-    
   };
 
   const handleRedirectToQrCode = () => {
