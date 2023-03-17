@@ -7,7 +7,7 @@ type Data = {
   name?: string
   message?: string
 }
-import db from '../../../public/db.json'
+import db from '../../database/db.json'
 import { readFile } from 'fs/promises'
 
 type User = {
