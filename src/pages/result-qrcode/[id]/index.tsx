@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import { baseUrl } from '@/pages';
 import Link from 'next/link';
 import { Button } from '@mui/material';
@@ -9,18 +9,18 @@ import styles from '@/styles/Home.module.css'
 const ResultQRCode = () => {
   const router = useRouter();
   const [user, setUser] = useState<userData>();
-  const {id} = router?.query;
+  const { id } = router?.query;
 
   interface userData {
-    name: string | null
-    linkedinURL: string | null
-    githubURL: string | null
+    name: string
+    linkedinURL: string
+    githubURL: string
   }
 
   useEffect(() => {
     const fetchUser = async () => {
-      if(id) {
-        const user = await (await fetch(`${baseUrl}/api/users?id=${id}`, {method: 'GET', })).json()
+      if (id) {
+        const user = await (await fetch(`${baseUrl}/api/users?id=${id}`, { method: 'GET', })).json()
         setUser(user);
       }
     }
@@ -29,11 +29,11 @@ const ResultQRCode = () => {
 
   return (
     <div className={styles.content}>
-        <p>Hello, my name is {user?.name}</p>
-        <h1>My History</h1>
-        <p>Lorem Ipsum is simply dummy text versions of Lorem Ipsum.</p>
-        <Button variant="outlined"><a href={user?.linkedinURL || ""} target="_blank">Linkedin</a></Button>
-        <Button variant="outlined"><a href={user?.githubURL || ""} target="_blank">Github</a></Button>
+      <p>Hello, my name is {user?.name}</p>
+      <h1>My History</h1>
+      <p>Lorem Ipsum is simply dummy text versions of Lorem Ipsum.</p>
+      <Button variant="outlined"><a href={user?.linkedinURL || ""} target="_blank">Linkedin</a></Button>
+      <Button variant="outlined"><a href={user?.githubURL || ""} target="_blank">Github</a></Button>
     </div>
   )
 
