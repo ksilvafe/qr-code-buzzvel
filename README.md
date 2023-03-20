@@ -40,11 +40,6 @@ pnpm dev
 docker run
 ```
 
-
-# Access published artifact# qr-code-buzzvel
-
-https://qr-code-buzzvel.vercel.app/
-
 ## Testes Locais
  parte 1
 ![image](https://user-images.githubusercontent.com/42346207/225956677-93e09aa8-193f-4b24-bf7a-13442ac66434.png)
